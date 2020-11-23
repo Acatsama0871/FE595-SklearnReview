@@ -33,8 +33,8 @@ def main():
     temp = sorted(coef_abs, reverse=True)
     ordered_index = [np.where(coef_abs == i)[0][0] for i in temp]
     ordered_features = [feature_names[i] for i in ordered_index]
-    ordered_coef_abs = [round(coef_abs[i], 4) for i in ordered_index]
     ordered_coef = [round(model_linear.coef_[i], 4) for i in ordered_index]
+    ordered_coef_abs = np.abs(ordered_coef)
 
     # output
     print('Feature Importance: from greatest to least','\n')
